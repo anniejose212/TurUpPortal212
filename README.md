@@ -35,14 +35,8 @@ TurnUpPortal212/
 
 ### Use of stable locators
 - Prefer **IDs** and **CSS selectors** where possible.  
-- When XPath is necessary, use attribute combinations with `and` for resilience, for example:  
-  ```csharp
-  By.XPath("//a[@title='Go to the last page' and @class='k-link k-pager-nav k-pager-last']")
-  ```
- - Avoids brittle absolute paths like  - Avoids brittle absolute paths like:
-  ```csharp
-    //*[@id="container"]/p/a
-  ```
+- When XPath is necessary, use attribute combinations with `and` for resilience.  
+
 ### Removed repetitive code
 - Tests no longer create new driver instances manually.  
 - Page Objects are used consistently for login, navigation, and CRUD actions.  
@@ -55,8 +49,14 @@ TurnUpPortal212/
 - Each page encapsulates its own logic (e.g., `CreateTimeRecord`, `EditTimeRecord`, `DeleteTimeRecord`).  
 - Tests now express *what is being tested*, not *how Selenium executes it*.  
 
+---  
+
 ## 📌 Next Steps
 - Add keys for user authentication in `app.config`.  
 - Add screenshot capture for failed tests.
 - Add automation for another module.
 - more optimisation with waithelpers for CRUD in Time module. 
+---
+
+## 📖 Developer Log
+See [DEVLOG.md](./DEVLOG.md) for a running record of changes and lessons learned.
