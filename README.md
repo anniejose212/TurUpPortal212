@@ -38,8 +38,6 @@ Prefer IDs and CSS selectors where possible.
 
 When XPath is necessary, use attribute combinations with and for resilience, for example:
 
-csharp
-Copy code
 By.XPath("//a[@title='Go to the last page' and @class='k-link k-pager-nav k-pager-last']")
 Avoids brittle absolute paths like //*[@id="container"]/p/a.
 
@@ -61,12 +59,6 @@ Each page encapsulates its own logic (e.g., CreateTimeRecord, EditTimeRecord, De
 
 Tests now express what is being tested, not how Selenium executes it.
 
-▶️ Running Tests
-bash
-Copy code
-dotnet restore
-dotnet test
-You can choose a browser by setting the browser variable in Base (default = Chrome).
 
 📌 Next Steps
 Add screenshots on failure.
