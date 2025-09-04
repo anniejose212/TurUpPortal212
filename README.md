@@ -37,8 +37,11 @@ TurUpPortal212/
 - Prefer **IDs** and **CSS selectors** where possible.  
 - When XPath is necessary, use attribute combinations with `and` for resilience, for example:  
   ```csharp
-  By.XPath("//a[@title='Go to the last page' and @class='k-link k-pager-nav k-pager-last']")```
-  - Avoids brittle absolute paths like  - Avoids brittle absolute paths like: ```csharp //*[@id="container"]/p/a```
+  By.XPath("//a[@title='Go to the last page' and @class='k-link k-pager-nav k-pager-last']")
+  ```
+ - Avoids brittle absolute paths like  - Avoids brittle absolute paths like:
+  - ```csharp
+    //*[@id="container"]/p/a```
 
 ### Removed repetitive code
 - Tests no longer create new driver instances manually.  
