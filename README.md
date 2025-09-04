@@ -1,4 +1,4 @@
-# TurUpPortal212 – UI Test Automation (C# · Selenium · NUnit)
+# TurnUpPortal212 – UI Test Automation (C# · Selenium · NUnit)
 
 This repository contains automated UI tests for the TurnUp Portal using **C#**, **Selenium WebDriver**, and **NUnit** with a simple Page Object Model (POM).
 
@@ -7,13 +7,13 @@ This repository contains automated UI tests for the TurnUp Portal using **C#**, 
 ## 📂 Project Structure
 
 ```text
-TurUpPortal212/
+TurnUpPortal212/
  ├── Pages/              # Page Objects (LoginPage, HomePage, TMPage, etc.)
  ├── Tests/              # NUnit test classes
  ├── Utilities/          # Helpers (waits, screenshots, common functions)
  ├── App.config          # Application configuration
- ├── TurUpPortal212.csproj  # C# project file
- ├── TurUpPortal212.sln     # Visual Studio solution file
+ ├── TurnUpPortal212.csproj  # C# project file
+ ├── TurnUpPortal212.sln     # Visual Studio solution file
  ├── .gitignore          # Git ignore rules
  ├── DEVLOG.md           # Developer log (progress and changes)
  └── README.md           # Project overview and documentation
@@ -41,8 +41,8 @@ TurUpPortal212/
   ```
  - Avoids brittle absolute paths like  - Avoids brittle absolute paths like:
   ```csharp
-    //*[@id="container"]/p/a```
-
+    //*[@id="container"]/p/a
+  ```
 ### Removed repetitive code
 - Tests no longer create new driver instances manually.  
 - Page Objects are used consistently for login, navigation, and CRUD actions.  
