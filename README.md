@@ -8,12 +8,15 @@ This repository contains automated UI tests for the TurnUp Portal using **C#**, 
 
 ```text
 TurUpPortal212/
- ├── Pages/       # Page Objects (LoginPage, HomePage, TMPage, etc.)
- ├── Tests/       # NUnit test classes
- ├── Utilities/   # Helpers (waits, screenshots, common functions)
- ├── Base.cs      # Base class: WebDriver setup/teardown + browser switch
- ├── Devlog.md    # Brief record of changes, improvements, and lessons learned 
- └── README.md
+ ├── Pages/              # Page Objects (LoginPage, HomePage, TMPage, etc.)
+ ├── Tests/              # NUnit test classes
+ ├── Utilities/          # Helpers (waits, screenshots, common functions)
+ ├── App.config          # Application configuration
+ ├── TurUpPortal212.csproj  # C# project file
+ ├── TurUpPortal212.sln     # Visual Studio solution file
+ ├── .gitignore          # Git ignore rules
+ ├── DEVLOG.md           # Developer log (progress and changes)
+ └── README.md           # Project overview and documentation
 ```
 
 ## 🔄 Improvements
