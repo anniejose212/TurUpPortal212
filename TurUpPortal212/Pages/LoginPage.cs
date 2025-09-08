@@ -14,23 +14,23 @@ namespace TurUpPortal212.Pages
 {
     public class LoginPage
     {
-        private IWebDriver driver;
+        private readonly IWebDriver _driver;
 
+        private readonly By usernameField = By.Id("UserName");
+        private readonly By passwordField = By.Id("Password");
+        private readonly By loginButton = By.XPath(("//input[@type='submit' and @value='Log in']"));
         public LoginPage(IWebDriver driver)
         {
-            this.driver = driver;
+            _driver = driver;
         }
 
-        // Identify elements using properties
-        private IWebElement UserName => driver.FindElement(By.Id("UserName"));
-        private IWebElement Password => driver.FindElement(By.Id("Password"));
-        private IWebElement LoginButton => driver.FindElement(By.XPath("//input[@type='submit' and @value='Log in']"));
 
         public void Login(string username, string password)
         {
-            UserName.SendKeys("hari");
-            Password.SendKeys("123123");
-            LoginButton.Click();
+
+            _driver.FindElement(usernameField).SendKeys(username);
+            _driver.FindElement(passwordField).SendKeys(password);
+            _driver.FindElement(loginButton).Click();
         }
 
     }
