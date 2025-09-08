@@ -23,12 +23,13 @@ namespace TurUpPortal212.Tests
             // Create an instance of the LoginPage class
             var loginPageObj = new LoginPage(driver);
 
-            // Call the LoginActions method to perform login
-            loginPageObj.Login("hari", "123123");
+            var username = TestContext.Parameters.Get("username", ConfigReader.Configuration["username"]);
+            var password = TestContext.Parameters.Get("password", ConfigReader.Configuration["password"]);
 
-            var helloUser = driver.FindElement(By.XPath("//a[normalize-space()='Hello hari!']"));
-            Assert.That(helloUser.Displayed, Is.True, "Login failed - 'Hello hari!' not visible.");
-            TestContext.WriteLine("✅ Verified greeting: 'Hello hari!' is visible.");
+            loginPageObj.Login(username, password);
+
+            var helloUser = driver.FindElement(By.XPath($"//a[normalize-space()='Hello {username}!']"));
+            Assert.That(helloUser.Displayed, Is.True, $"Login failed - 'Hello {username}!' not visible.");
 
             var dashboardPageObj = new DashboardPage(driver);
             dashboardPageObj.NavigateToTMPage();
@@ -44,10 +45,10 @@ namespace TurUpPortal212.Tests
         public void CreateTime_Test()
         {
             // Create an instance of the TMPage class
-            var tmPageObj = new TMPage(driver);
+            var CreateTimeRecordObj = new TMPage(driver);
 
             // Call the CreateTM method to create a new Time and Material record
-            tmPageObj.CreateTimeRecord();
+            CreateTimeRecordObj.CreateTimeRecord();
 
             
         }

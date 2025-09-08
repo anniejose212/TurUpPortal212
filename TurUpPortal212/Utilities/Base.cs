@@ -1,22 +1,46 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.Extensions.Configuration;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Configuration;
+using System.IO;
 
 namespace TurUpPortal212.Utilities
 {
     public class Base
     {
-        protected IWebDriver driver;
+        protected IWebDriver driver = default!;
+        private IConfiguration _config = default!;
+        private string _baseUrl = string.Empty;
+        private string _browser = "chrome";
+
+        [OneTimeSetUp]
+        public void GlobalSetup()
+        {
+            var baseDir = AppContext.BaseDirectory;
+
+             _config = new ConfigurationBuilder()
+                 .SetBasePath(baseDir)
+                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                 .Build();
+
+            
+
+
+            _baseUrl = _config["baseUrl"] ?? throw new InvalidOperationException("Missing baseUrl");
+            _browser = (_config["browser"] ?? "chrome").ToLowerInvariant();
+
+        }
+
 
         [SetUp]
         public void StartBrowser()
         {
-            // Read from App.config
-            string browser = ConfigurationManager.AppSettings["browser"]?.ToLower();
+            // Read from appsettings.json
+            var browser = (_config["browser"] ?? "chrome").ToLowerInvariant();
 
             switch (browser)
             {
@@ -40,7 +64,7 @@ namespace TurUpPortal212.Utilities
 
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            driver.Navigate().GoToUrl("http://horse.industryconnect.io/");
+            driver.Navigate().GoToUrl(_baseUrl);
         }
 
         [TearDown]
