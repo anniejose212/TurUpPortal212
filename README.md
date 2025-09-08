@@ -5,6 +5,7 @@ This repository contains automated UI tests for the TurnUp Portal using **C#**, 
 ---
 
 ## 📂 Project Structure
+This may change over time as I am still working on the progress.
 
 ```text
 TurnUpPortal212/
