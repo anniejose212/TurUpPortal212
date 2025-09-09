@@ -12,7 +12,6 @@ TurnUpPortal212/
  ├── Pages/              # Page Objects (LoginPage, HomePage, TMPage, etc.)
  ├── Tests/              # NUnit test classes
  ├── Utilities/          # Helpers (waits, screenshots, common functions)
- ├── App.config          # Application configuration
  ├── TurnUpPortal212.csproj  # C# project file
  ├── TurnUpPortal212.sln     # Visual Studio solution file
  ├── .gitignore          # Git ignore rules
@@ -50,14 +49,6 @@ TurnUpPortal212/
 - Each page encapsulates its own logic (e.g., `CreateTimeRecord`, `EditTimeRecord`, `DeleteTimeRecord`).  
 - Tests now express *what is being tested*, not *how Selenium executes it*.  
 
----  
-
-## 📌 Next Steps
-- Add keys for user authentication in `app.config`.  
-- Add screenshot capture for failed tests.
-- Add automation for another module.
-- more optimisation with waithelpers for CRUD in Time module. 
----
 
 ## 📖 Developer Log
 See [DEVLOG.md](./DEVLOG.md) for a running record of changes and lessons learned.
